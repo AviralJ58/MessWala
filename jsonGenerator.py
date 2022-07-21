@@ -3,7 +3,6 @@ import json
 
 hostel=0
 mess=0
-type_dict={1:"MenuType.BREAKFAST",2:"MenuType.LUNCH",3:"MenuType.SNACK",4:"MenuType.DINNER"}
 hostel_dict={1:"MH", 2:"LH"}
 mess_dict={1:"Special", 2:"Veg", 3:"NonVeg"}
 
@@ -24,7 +23,7 @@ with open(menu) as file_obj:
         menu_json["date"]=row[0]
         menu_json["menu"]=[]
         for i in range(1,len(row)):
-            menu_json["menu"].append({"type":type_dict[i],"menu":row[i].replace('\n',', ')})
+            menu_json["menu"].append({"type":i,"menu":row[i].replace('\n',', ')})
         json_menu["menu"].append(menu_json)
 
 # save as json file
