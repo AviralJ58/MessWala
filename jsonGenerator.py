@@ -24,7 +24,7 @@ with open(menu) as file_obj:
         menu_json["date"]=row[0]
         menu_json["menu"]=[]
         for i in range(1,len(row)):
-            menu_json["menu"].append({"type":type_dict[i],"menu":row[i].replace('\n','')})
+            menu_json["menu"].append({"type":type_dict[i],"menu":row[i].replace('\n',', ')})
         json_menu["menu"].append(menu_json)
 
 # save as json file
