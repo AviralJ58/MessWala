@@ -1,0 +1,30 @@
+<html>
+
+<head>
+    <title>MessWala Menu Upload</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+
+<body>
+    <form action="/generateJSON" method="post" enctype="multipart/form-data" class="inputForm">
+        <h1>JSON Generator</h1>
+        Select hostel:
+        <select name="hostel">
+            <option value="MH">MH</option>
+            <option value="LH">LH</option>
+        </select>
+        <br>
+        Select mess type:
+        <select name="mess">
+            <option value="Special">Special</option>
+            <option value="Veg">Veg</option>
+            <option value="NonVeg">NonVeg</option>
+        </select>
+        <br>
+        Upload menu in csv format:
+        <input type="file" name="menu" id="fileToUpload">
+        <br>
+        <input type="submit" value="Upload Menu" name="submit">
+    </form>
+
+</html>
