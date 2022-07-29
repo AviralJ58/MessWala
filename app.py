@@ -26,6 +26,9 @@ def generateJSON():
         hostel = request.form['hostel']
         mess = request.form['mess']
         file = request.files['menu']
+        extension=file.filename.split('.')[-1]
+        if not extension == 'csv':
+            return render_template('jsonGen.html', error='Please upload a CSV file')
         if not os.path.isdir('static'):
             os.mkdir('static')
         if os.path.isfile("static/menu.csv"):
@@ -62,6 +65,8 @@ def parseMenu():
     if request.method == 'POST':
         file = request.files['menu']
         extension=file.filename.split('.')[-1]
+        if not extension == 'png' and not extension == 'jpg' and not extension == 'jpeg':
+            return render_template('menuParse.html', error='Please upload an image file (png, jpg, jpeg)')
         menu = "static/menu"+"."+extension
         if not os.path.isdir('static'):
             os.mkdir('static')
